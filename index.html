@@ -94,7 +94,6 @@
             box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
         }
 
-        /* Estilos base del logo escalables con Tailwind */
         .logo-img {
             border-radius: 50%;
             object-fit: cover;
@@ -171,6 +170,21 @@
         <!-- CTAs Section -->
         <nav class="grid grid-cols-1 gap-4 md:gap-6 w-full fade-in" style="animation-delay: 0.3s">
             
+            <!-- WhatsApp (Prioridad 1 para Ventas con Mensaje Predeterminado) -->
+            <a href="https://api.whatsapp.com/send?phone=573217759152&text=Estoy%20interesado%20en%20una%20prenda..." target="_blank" 
+               class="social-button glass-card flex items-center justify-between p-5 md:p-7 rounded-3xl w-full group">
+                <div class="flex items-center space-x-5">
+                    <div class="p-3 md:p-4 bg-[#25D366] text-white rounded-2xl shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block font-bold text-lg md:text-2xl">WhatsApp</span>
+                        <span class="block text-xs md:text-sm opacity-60">Haz tu pedido directo</span>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-5 h-5 md:w-6 md:h-6 opacity-30 group-hover:opacity-100 transition-all"></i>
+            </a>
+
             <!-- Instagram -->
             <a href="https://www.instagram.com/valmy.store/" target="_blank" 
                class="social-button glass-card flex items-center justify-between p-5 md:p-7 rounded-3xl w-full group">
@@ -220,7 +234,7 @@
 
         <!-- Footer -->
         <footer class="mt-20 mb-12 text-[10px] md:text-xs uppercase tracking-[5px] font-bold opacity-30">
-            &copy; 2026 VALMY STORE
+            &copy; 2026 VALMY STORE CLOTHING
         </footer>
 
     </main>
@@ -242,8 +256,6 @@
                 currentTheme = 'dark';
             }
             lucide.createIcons();
-            
-            // Transición suave
             body.style.opacity = '0.9';
             setTimeout(() => body.style.opacity = '1', 150);
         }
