@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALMY STORE | De Siloé para el Mundo</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@300;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* TEMA OSCURO (Default - Premium Street) */
+            --primary-color: #ffffff;
+            --accent-color: #6366f1; 
+            --bg-main: #020617;
+            --bg-gradient: radial-gradient(circle at top, #1e1b4b 0%, #020617 100%);
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-border: rgba(255, 255, 255, 0.1);
+            --logo-border: #020617;
+        }
+
+        [data-theme="light"] {
+            /* TEMA CLARO (Contraste Optimizado) */
+            --primary-color: #0f172a;
+            --accent-color: #4f46e5;
+            --bg-main: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-main: #020617; 
+            --text-muted: #1e293b;
+            --card-border: rgba(0, 0, 0, 0.1);
+            --logo-border: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            transition: all 0.4s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1, h2, .font-outfit {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .social-button {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+        }
+
+        .social-button:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            background: var(--primary-color);
+            color: var(--bg-main);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .logo-ring {
+            padding: 4px;
+            background: linear-gradient(45deg, var(--accent-color), #ec4899);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Estilos base del logo escalables con Tailwind */
+        .logo-img {
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--logo-border);
+            transition: all 0.4s ease;
+        }
+
+        .badge-silo {
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 99px;
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        .theme-btn {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 50%;
+            z-index: 50;
+            transition: transform 0.3s;
+        }
+        
+        .theme-btn:hover {
+            transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+
+    <button onclick="toggleTheme()" class="theme-btn shadow-lg">
+        <i id="theme-icon" data-lucide="sun" class="w-6 h-6"></i>
+    </button>
+
+    <main class="w-full max-w-md md:max-w-xl text-center pt-4 md:pt-10">
+        
+        <!-- Header Section -->
+        <header class="mb-8 md:mb-12 fade-in" style="animation-delay: 0.1s">
+            <div class="logo-ring">
+                <img src="valmy_store.jpg" alt="Logo Valmy Store" 
+                     class="logo-img w-[120px] h-[120px] md:w-[160px] md:h-[160px]" 
+                     onerror="this.src='https://ui-avatars.com/api/?name=Valmy+Store&background=020617&color=fff&bold=true'">
+            </div>
+            <h1 class="mt-6 text-4xl md:text-6xl font-black tracking-tighter uppercase italic leading-none">
+                VALMY STORE
+            </h1>
+            <div class="mt-4 flex justify-center">
+                <span class="badge-silo text-[10px] md:text-sm tracking-widest">De Siloé para el mundo</span>
+            </div>
+        </header>
+
+        <!-- Brand Message Section -->
+        <section class="mb-10 md:mb-14 space-y-4 md:space-y-6 fade-in" style="animation-delay: 0.2s">
+            <p class="font-bold italic text-xl md:text-3xl" style="color: var(--accent-color)">
+                "No solo es ropa, es un mensaje"
+            </p>
+            <p class="px-2 md:px-8 text-sm md:text-xl leading-relaxed md:leading-normal">
+                Representamos la fuerza y superación de quienes luchan por sus sueños. 💥 <br class="hidden md:block">
+                <strong>Orgullo, talento y pasión.</strong>
+            </p>
+            <div class="py-2 md:py-3 px-6 glass-card rounded-2xl mx-auto inline-block">
+                <p class="font-black text-[11px] md:text-sm uppercase tracking-[0.2em]">
+                    ❤️ Calle y Corazón
+                </p>
+            </div>
+        </section>
+
+        <!-- CTAs Section -->
+        <nav class="grid grid-cols-1 gap-4 md:gap-6 w-full fade-in" style="animation-delay: 0.3s">
+            
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/valmy.store/" target="_blank" 
+               class="social-button glass-card flex items-center justify-between p-5 md:p-7 rounded-3xl w-full group">
+                <div class="flex items-center space-x-5">
+                    <div class="p-3 md:p-4 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] rounded-2xl text-white">
+                        <i data-lucide="instagram" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block font-bold text-lg md:text-2xl">Instagram</span>
+                        <span class="block text-xs md:text-sm opacity-60">Nuevos lanzamientos</span>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-5 h-5 md:w-6 md:h-6 opacity-30 group-hover:opacity-100 transition-all"></i>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@valmy.store17" target="_blank" 
+               class="social-button glass-card flex items-center justify-between p-5 md:p-7 rounded-3xl w-full group">
+                <div class="flex items-center space-x-5">
+                    <div class="p-3 md:p-4 bg-black text-white rounded-2xl">
+                        <i data-lucide="video" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block font-bold text-lg md:text-2xl">TikTok</span>
+                        <span class="block text-xs md:text-sm opacity-60">Estilo urbano 24/7</span>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-5 h-5 md:w-6 md:h-6 opacity-30 group-hover:opacity-100 transition-all"></i>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61566922956900" target="_blank" 
+               class="social-button glass-card flex items-center justify-between p-5 md:p-7 rounded-3xl w-full group">
+                <div class="flex items-center space-x-5">
+                    <div class="p-3 md:p-4 bg-[#1877F2] text-white rounded-2xl">
+                        <i data-lucide="facebook" class="w-6 h-6 md:w-8 md:h-8"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block font-bold text-lg md:text-2xl">Facebook</span>
+                        <span class="block text-xs md:text-sm opacity-60">Nuestra comunidad</span>
+                    </div>
+                </div>
+                <i data-lucide="external-link" class="w-5 h-5 md:w-6 md:h-6 opacity-30 group-hover:opacity-100 transition-all"></i>
+            </a>
+
+        </nav>
+
+        <!-- Footer -->
+        <footer class="mt-20 mb-12 text-[10px] md:text-xs uppercase tracking-[5px] font-bold opacity-30">
+            &copy; 2026 VALMY STORE
+        </footer>
+
+    </main>
+
+    <script>
+        lucide.createIcons();
+        let currentTheme = 'dark';
+
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            if (currentTheme === 'dark') {
+                body.setAttribute('data-theme', 'light');
+                icon.setAttribute('data-lucide', 'moon');
+                currentTheme = 'light';
+            } else {
+                body.removeAttribute('data-theme');
+                icon.setAttribute('data-lucide', 'sun');
+                currentTheme = 'dark';
+            }
+            lucide.createIcons();
+            
+            // Transición suave
+            body.style.opacity = '0.9';
+            setTimeout(() => body.style.opacity = '1', 150);
+        }
+    </script>
+</body>
+</html>
